@@ -8,7 +8,7 @@ logging.basicConfig(filename="scrapper.log" , level=logging.INFO)
 import pymongo
 
 app = Flask(__name__)
-
+application = app
 @app.route("/", methods = ['GET'])
 @cross_origin()
 def homepage():
@@ -87,4 +87,4 @@ def index():
             return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0')
