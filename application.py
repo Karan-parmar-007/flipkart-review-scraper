@@ -23,6 +23,7 @@ def index():
             reviews = []
             searchString = request.form['content'].replace(" ","")
             flipkart_url = "https://www.flipkart.com/search?q=" + searchString
+            logging.info("search link formed")
             url_client = uReq(flipkart_url)
             flipkart_page = url_client.read()
             flipkart_html = bs(flipkart_page, 'html.parser')
@@ -51,7 +52,7 @@ def index():
                 number_of_pages_in_all = number_of_pages[0].span.text
                 page_info = number_of_pages_in_all
                 max_pages_str = page_info.split('of')[-1].strip()
-                max_pages = int(max_pages_str)
+                # max_pages = int(max_pages_str)
                 # for i in range(1, max_pages + 1):
                 for i in range(2):
                     logging.info("fourth for loop")
